@@ -1,32 +1,12 @@
 <template>
-  <UserOutput/>
-  <UserResults/>
-	<InputControls/>
-	<OutputControlPad/>
+  <div id="view_navigation">
+    <router-link to="/">
+      <input type="checkbox" id="view_selector_button" checked>
+      <label id="simple_view_selector">Simple</label>
+    </router-link>
+  </div>
+  <router-view/>
 </template>
-
-<script>
-import UserOutput from './components/UserOutput.vue';
-import UserResults from './components/UserResults.vue';
-import InputControls from './components/InputControls.vue';
-import OutputControlPad from './components/OutputControlPad.vue';
-
-export default {
-  name: 'App',
-  components: {
-    UserOutput,
-		UserResults,
-		InputControls,
-		OutputControlPad
-  },
-	mounted() {
-		window.onkeydown = (event) => {
-			this.$store.commit('inputHandler/handle', event.key);
-			event.stopPropagation();
-		};
-	}
-}
-</script>
 
 <style>
 body {
@@ -34,13 +14,15 @@ body {
 	background-color: black;
 }
 
-#app {
-	display: grid;
-	background-color: black;
-	grid-template-rows: repeat(2,minmax(10vh,auto));
-	grid-gap: 10px;
-	width: 100%;
-	grid-template-columns: repeat(3, auto);
-	margin: 0 0 0 0;
+div#view_navigation {
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
+
+input[type=checkbox] {
+  width: 100px;
+  height: 100px;
+}
+
 </style>
