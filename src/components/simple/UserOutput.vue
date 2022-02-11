@@ -9,7 +9,7 @@ export default {
   name: 'UserOutput',
   computed: {
     expression() {
-      return this.$store.getters['output/value'];
+      return this.$store.getters['simple/output/value'];
     }
   }
 }

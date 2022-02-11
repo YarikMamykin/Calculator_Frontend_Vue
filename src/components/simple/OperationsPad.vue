@@ -20,7 +20,7 @@ export default {
   },
   methods:{
     buttonPressed(buttonId) {
-			this.$store.commit('inputHandler/handle', buttonId);
+			this.$store.commit('simple/inputHandler/handle', buttonId);
     }
   }
 }

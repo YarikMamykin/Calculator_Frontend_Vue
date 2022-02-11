@@ -12,7 +12,7 @@ export default {
   name: 'UserResults',
 	computed: {
 		results() {
-			return this.$store.getters['results/value'];
+			return this.$store.getters['simple/results/value'];
 		}
 	}
 }

@@ -7,7 +7,7 @@ export default {
   name: 'SubmitButton',
   methods:{
     buttonPressed() {
-			this.$store.commit('inputHandler/handle', 'Enter');
+			this.$store.commit('simple/inputHandler/handle', 'Enter');
     }
   }
 }

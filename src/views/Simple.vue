@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import UserOutput from '@/components/UserOutput.vue';
-import UserResults from '@/components/UserResults.vue';
-import InputControls from '@/components/InputControls.vue';
-import OutputControlPad from '@/components/OutputControlPad.vue';
+import UserOutput from '@/components/simple/UserOutput.vue';
+import UserResults from '@/components/simple/UserResults.vue';
+import InputControls from '@/components/simple/InputControls.vue';
+import OutputControlPad from '@/components/simple/OutputControlPad.vue';
 
 export default {
   name: 'Simple',
@@ -23,7 +23,7 @@ export default {
   },
 	mounted() {
 		window.onkeydown = (event) => {
-			this.$store.commit('inputHandler/handle', event.key);
+			this.$store.commit('simple/inputHandler/handle', event.key);
 			event.stopPropagation();
 		};
 	},
