@@ -26,6 +26,9 @@ export default {
 			this.$store.commit('inputHandler/handle', event.key);
 			event.stopPropagation();
 		};
+	},
+	unmounted() {
+		window.onkeydown = null;
 	}
 }
 </script>
