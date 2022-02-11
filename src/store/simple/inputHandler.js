@@ -31,23 +31,23 @@ const inputHandler = {
       if(state.self.operationKeys.includes(keyId) || 
          state.self.numericKeys.includes(keyId)) {
 
-        this.commit('output/append', keyId);
+        this.commit('simple/output/append', keyId);
         return;
       }
 
       if(state.self.eraseSymbolKey == keyId) {
-        this.commit('output/pop_last');
+        this.commit('simple/output/pop_last');
         return;
       }
 
       if(state.self.eraseKey == keyId) {
-        this.commit('output/clear');
+        this.commit('simple/output/clear');
         return;
       }
 
       if(state.self.submitKey == keyId) {
-        this.commit('output/push');
-        this.commit('output/clear');
+        this.commit('simple/output/push');
+        this.commit('simple/output/clear');
       }
     }
   },

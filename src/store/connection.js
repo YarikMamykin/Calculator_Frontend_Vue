@@ -10,7 +10,7 @@ const connection = {
   mutations: {
     send(state, data) {
       state.self.send(data, (msg_data) => { 
-        this.commit('results/add', data + '=' + parseFloat(msg_data));
+        this.commit('simple/results/add', data + '=' + parseFloat(msg_data));
       });
     },
     send_binary(state, data) {
