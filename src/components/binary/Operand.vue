@@ -24,6 +24,9 @@ const AllowedKeys = [
 export default {
   name: 'Operand',
   props: [ 'position', 'operand' ],
+  mounted() {
+    this.currentValue = this.value;
+  },
   data() {
     return {
       currentValue: ''
