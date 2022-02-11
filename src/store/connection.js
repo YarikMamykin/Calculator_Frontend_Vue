@@ -12,6 +12,11 @@ const connection = {
       state.self.send(data, (msg_data) => { 
         this.commit('results/add', data + '=' + parseFloat(msg_data));
       });
+    },
+    send_binary(state, data) {
+      state.self.send(data, (msg_data) => { 
+        this.commit('binary/result/set', msg_data);
+      });
     }
   },
   namespaced: true
