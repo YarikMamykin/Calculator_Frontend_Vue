@@ -22,7 +22,7 @@ const result = {
 
       const operation = this.getters['binary/operation/value'];
 
-      this.commit('connection/send_binary', `${first} ${operation} ${second}`);
+      this.commit('connection/send_binary', `${first}${operation}${second}`);
     },
     reset(state) {
       state.value = '';
