@@ -9,12 +9,20 @@ const connection = {
   },
   mutations: {
     send(state, data) {
-      state.self.send(data, (msg_data) => { 
+      const request = `{
+      "pipe": "DECIMAL",
+      "data": "${data}"
+      }`;
+      state.self.send(request, (msg_data) => { 
         this.commit('simple/results/add', data + '=' + parseFloat(msg_data));
       });
     },
     send_binary(state, data) {
-      state.self.send(data, (msg_data) => { 
+      const request = `{
+      "pipe": "BINARY",
+      "data": "${data}"
+      }`;
+      state.self.send(request, (msg_data) => { 
         this.commit('binary/result/set', msg_data);
       });
     }
