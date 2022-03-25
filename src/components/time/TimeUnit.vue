@@ -1,0 +1,68 @@
+<template>
+  <div id="time_unit">
+    <select @change="valueSelected">
+      <option 
+        v-for="value in allowedValues" 
+        v-bind:key="value" 
+        v-bind:selected="value == selectedValue">{{ value }}
+      </option>
+    </select>
+    <label>{{ hint }}</label>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TimeUnit',
+  props: [ 'hint', 'allowedValues' ],
+  methods: {
+    operationSelected: function(e) {
+      const value = this.options[e.target.options.selectedIndex].value;
+			this.$store.commit('time/operation/set', value);
+    }
+  },
+  computed: {
+    selectedValue() {
+      return this.$store.getters['time/operation/value'];
+    },
+  }
+}
+</script>
+
+<style scoped>
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: deepskyblue;
+  border: 4px dashed lightgoldenrodyellow;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-size: x-large;
+}
+
+option {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+label {
+  width: auto;
+  background-color: antiquewhite;
+  display: block;
+  text-align: center;
+}
+
+div#time_unit {
+  display: flex;
+  flex-direction: column;
+  max-width: 10vw;
+  width: 10vw;
+}
+</style>
+
