@@ -2,6 +2,7 @@
   <nav id="view_navigation">
     <router-link to="/" class="view_selector">SIMPLE</router-link>
     <router-link to="/binary" class="view_selector">BINARY</router-link>
+    <router-link to="/time" class="view_selector">TIME</router-link>
   </nav>
 </template>
 
