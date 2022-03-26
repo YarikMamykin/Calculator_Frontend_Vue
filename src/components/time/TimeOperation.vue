@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     selectedOption() {
-      return this.$store.getters['binary/operation/value'];
+      return this.$store.getters['time/operation/value'];
     },
     options() {
       return [ 
