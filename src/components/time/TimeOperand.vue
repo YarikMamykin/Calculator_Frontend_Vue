@@ -6,17 +6,20 @@
 		<TimeUnit v-bind:readonly="readonly" hint="hours" v-bind:allowedValues="[0,1,2,3,4]"/>
 		<TimeUnit v-bind:readonly="readonly" hint="minutes" v-bind:allowedValues="[0,1,2,3,4]"/>
 		<TimeUnit v-bind:readonly="readonly" hint="seconds" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<CalendarSelector v-bind:readonly="readonly"/>
 	</div>
 </template>
 
 <script>
 import TimeUnit from '@/components/time/TimeUnit.vue';
+import CalendarSelector from '@/components/time/CalendarSelector.vue';
 
 export default {
   name: 'TimeOperand',
-	props: ['readonly'],
+	props: [ 'readonly' ],
   components: {
-		TimeUnit
+		TimeUnit,
+		CalendarSelector
   },
 }
 </script>
@@ -25,7 +28,7 @@ export default {
 #time_operand {
 	display: grid;
 	background-color: black;
-	grid-template-columns: repeat(6, auto);
+	grid-template-columns: repeat(7, auto);
 	grid-gap: 1vw;
 	width: 100%;
 	justify-content: center;
