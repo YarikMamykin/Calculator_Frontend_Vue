@@ -1,6 +1,6 @@
 <template>
   <div id="time_unit">
-    <select @change="valueSelected">
+    <select :disabled="readonly" @change="valueSelected">
       <option 
         v-for="value in allowedValues" 
         v-bind:key="value" 
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'TimeUnit',
-  props: [ 'hint', 'allowedValues' ],
+  props: [ 'readonly', 'hint', 'allowedValues' ],
   methods: {
     operationSelected: function(e) {
       const value = this.options[e.target.options.selectedIndex].value;
