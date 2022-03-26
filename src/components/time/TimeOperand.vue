@@ -1,11 +1,11 @@
 <template>
 	<div id="time_operand">
-		<TimeUnit hint="years" v-bind:allowedValues="[0,1,2,3,4]"/>
-		<TimeUnit hint="weeks" v-bind:allowedValues="[0,1,2,3,4]"/>
-		<TimeUnit hint="days" v-bind:allowedValues="[0,1,2,3,4]"/>
-		<TimeUnit hint="hours" v-bind:allowedValues="[0,1,2,3,4]"/>
-		<TimeUnit hint="minutes" v-bind:allowedValues="[0,1,2,3,4]"/>
-		<TimeUnit hint="seconds" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<TimeUnit v-bind:readonly="readonly" hint="years" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<TimeUnit v-bind:readonly="readonly" hint="weeks" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<TimeUnit v-bind:readonly="readonly" hint="days" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<TimeUnit v-bind:readonly="readonly" hint="hours" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<TimeUnit v-bind:readonly="readonly" hint="minutes" v-bind:allowedValues="[0,1,2,3,4]"/>
+		<TimeUnit v-bind:readonly="readonly" hint="seconds" v-bind:allowedValues="[0,1,2,3,4]"/>
 	</div>
 </template>
 
@@ -14,6 +14,7 @@ import TimeUnit from '@/components/time/TimeUnit.vue';
 
 export default {
   name: 'TimeOperand',
+	props: ['readonly'],
   components: {
 		TimeUnit
   },
@@ -28,7 +29,6 @@ export default {
 	grid-gap: 1vw;
 	width: 100%;
 	justify-content: center;
-	margin-bottom: 10vh;
 }
 </style>
 
