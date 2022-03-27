@@ -1,10 +1,10 @@
 <template>
 	<div id="time_view">
-		<TimeOperand v-bind:readonly="false"/>
-		<TimeOperation/>
-		<TimeOperand v-bind:readonly="false"/>
+		<TimeOperand :readonly="false" :storage="firstOperand"/>
+		<TimeOperation :storage="operation"/>
+		<TimeOperand :readonly="false" :storage="secondOperand"/>
 		<label id="is_label">IS</label>
-		<TimeOperand v-bind:readonly="true"/>
+		<TimeOperand :readonly="true" :storage="result"/>
 	</div>
 </template>
 
@@ -18,6 +18,14 @@ export default {
 		TimeOperand,
 		TimeOperation
   },
+	data() {
+		return {
+			firstOperand: 'time/first_operand',
+			secondOperand: 'time/second_operand',
+			operation: 'time/operation',
+			result: 'time/result'
+		};
+	}
 }
 </script>
 
