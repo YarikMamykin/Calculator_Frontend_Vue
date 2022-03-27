@@ -25,6 +25,15 @@ const connection = {
       state.self.send(request, (msg_data) => { 
         this.commit('binary/result/set', msg_data);
       });
+    },
+    send_time(state, data) {
+      const request = `{
+      "pipe": "TIME",
+      "data": "${data}"
+      }`;
+      state.self.send(request, (msg_data) => { 
+        this.commit('time/result/set', msg_data);
+      });
     }
   },
   namespaced: true
