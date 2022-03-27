@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Simple from '@/views/Simple.vue'
 import Binary from '@/views/Binary.vue'
+import Time from '@/views/Time.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/binary',
     name: 'Binary',
     component: Binary
+  },
+  {
+    path: '/time',
+    name: 'Time',
+    component: Time
   },
 ]
 
