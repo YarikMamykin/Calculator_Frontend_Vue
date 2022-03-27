@@ -1,3 +1,18 @@
+const constructTimeString = (storage, timeOperand) => {
+  let timeValueComponents = [];
+  for(const field of [ 'years', 
+                       'months', 
+                       'weeks', 
+                       'days', 
+                       'hours', 
+                       'minutes', 
+                       'seconds' ]) {
+    const storageUrl = `time/${timeOperand}/${field}`;
+    timeValueComponents.push(storage.getters[storageUrl]);
+  }
+  return timeValueComponents.join('_');
+};
+
 const result = {
   state: {
     value: ''
@@ -8,22 +23,11 @@ const result = {
     },
     update(state) {
 
-      const first = this.getters['time/first_operand/value'];
-      const second = this.getters['time/second_operand/value'];
+      const first = constructTimeString(this, 'first_operand');
       const operation = this.getters['time/operation/value'];
+      const second = constructTimeString(this, 'second_operand');
 
-      // if(first.length === 0) {
-        // state.value = '';
-        // return;
-      // }
-
-      // if(second.length === 0) {
-        // state.value = '';
-        // return;
-      // }
-
-
-      // this.commit('connection/send_time', `${first}${operation}${second}`);
+      this.commit('connection/send_time', `${first}${operation}${second}`);
     },
     reset(state) {
       state.value = '';
