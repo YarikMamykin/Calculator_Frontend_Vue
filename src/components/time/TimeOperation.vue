@@ -3,22 +3,23 @@
       <option 
         v-for="option in options" 
         v-bind:key="option.value" 
-        v-bind:selected="option.value == selectedOption">{{ option.uservalue }}</option>
+        v-bind:selected="option.value == selectedOperation">{{ option.uservalue }}</option>
     </select>
 </template>
 
 <script>
 export default {
   name: 'TimeOperation',
+  props: [ 'storage' ],
   methods: {
-    operationSelected: function(e) {
+    operationSelected(e) {
       const operation = this.options[e.target.options.selectedIndex].value;
-			this.$store.commit('time/operation/set', operation);
+      this.$store.commit(`${this.storage}/set`, operation);
     }
   },
   computed: {
-    selectedOption() {
-      return this.$store.getters['time/operation/value'];
+    selectedOperation() {
+      return this.$store.getters[`${this.storage}/value`];
     },
     options() {
       return [ 
