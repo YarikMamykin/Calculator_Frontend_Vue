@@ -14,16 +14,16 @@
 <script>
 export default {
   name: 'TimeUnit',
-  props: [ 'readonly', 'hint', 'allowedValues' ],
+  props: [ 'readonly', 'storage', 'hint', 'allowedValues' ],
   methods: {
-    operationSelected: function(e) {
-      const value = this.options[e.target.options.selectedIndex].value;
-			this.$store.commit('time/operation/set', value);
+    valueSelected: function(e) {
+      const value = this.allowedValues[e.target.options.selectedIndex];
+      this.$store.commit(`${this.storage}/set_${this.hint}`, value);
     }
   },
   computed: {
     selectedValue() {
-      return this.$store.getters['time/operation/value'];
+      return this.$store.getters[`${this.storage}/${this.hint}`];
     },
   }
 }
